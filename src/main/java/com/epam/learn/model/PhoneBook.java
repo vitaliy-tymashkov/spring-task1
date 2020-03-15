@@ -2,19 +2,20 @@ package com.epam.learn.model;
 
 import java.util.Objects;
 
-public class City {
+public class PhoneBook {
 
     private Long id;
     private String name;
-    private int population;
+    private String phoneNumber;
+    private String phoneCompany;
 
-    public City() {
+    public PhoneBook() {
     }
 
-    public City(Long id, String name, int population) {
+    public PhoneBook(Long id, String name, String phoneNumber) {
         this.id = id;
         this.name = name;
-        this.population = population;
+        this.phoneNumber = phoneNumber;
     }
 
     public Long getId() {
@@ -33,12 +34,20 @@ public class City {
         this.name = name;
     }
 
-    public int getPopulation() {
-        return population;
+    public String getPhoneNumber() {
+        return phoneNumber;
     }
 
-    public void setPopulation(int population) {
-        this.population = population;
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
+    }
+
+    public String getPhoneCompany() {
+        return phoneCompany;
+    }
+
+    public void setPhoneCompany(String phoneCompany) {
+        this.phoneCompany = phoneCompany;
     }
 
     @Override
@@ -46,7 +55,8 @@ public class City {
         int hash = 7;
         hash = 29 * hash + Objects.hashCode(this.id);
         hash = 29 * hash + Objects.hashCode(this.name);
-        hash = 29 * hash + this.population;
+        hash = 29 * hash + Objects.hashCode(this.phoneNumber);
+        hash = 29 * hash + Objects.hashCode(this.phoneCompany);
         return hash;
     }
 
@@ -61,8 +71,12 @@ public class City {
         if (getClass() != obj.getClass()) {
             return false;
         }
-        final City other = (City) obj;
-        if (this.population != other.population) {
+        final PhoneBook other = (PhoneBook) obj;
+
+        if (this.phoneCompany != other.phoneCompany) {
+            return false;
+        }
+        if (this.phoneNumber != other.phoneNumber) {
             return false;
         }
         if (!Objects.equals(this.name, other.name)) {
@@ -76,10 +90,11 @@ public class City {
 
     @Override
     public String toString() {
-        final StringBuilder sb = new StringBuilder("City{");
+        final StringBuilder sb = new StringBuilder("PhoneBook{");
         sb.append("id=").append(id);
         sb.append(", name='").append(name).append('\'');
-        sb.append(", population=").append(population);
+        sb.append(", phoneNumber=").append(phoneNumber);
+        sb.append(", phoneCompany=").append(phoneCompany);
         sb.append('}');
         return sb.toString();
     }

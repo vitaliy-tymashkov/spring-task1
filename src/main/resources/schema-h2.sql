@@ -1,4 +1,5 @@
-CREATE TABLE cities(
+CREATE TABLE phonebook(
 id INT PRIMARY KEY AUTO_INCREMENT,
 name VARCHAR(255),
-population INT);
+phoneNumber VARCHAR(255),
+phoneCompany VARCHAR(255));
